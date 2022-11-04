@@ -2,9 +2,13 @@ import axios from 'axios';
 const instance = axios.create({
     withCredentials: true
   })
-  
 
-export default function get() {
-    return instance.get("https://8080-sondrp-gitpodtesting-5cobtnvpwe0.ws-eu73.gitpod.io/")
+  
+  
+  export default function get() {
+
+    const requestUrl = origin.replace("3000", "8080")
+    console.log(origin)
+    return instance.get(requestUrl)
                 .then(response => console.log("working"))
 }
