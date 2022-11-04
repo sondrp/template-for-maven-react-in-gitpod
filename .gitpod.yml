@@ -9,9 +9,6 @@ tasks:
           mvn clean install &&
           mvn spring-boot:start
     command: cd ..
-  - name: start frontend ui
-  command: echo "test"
-
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
