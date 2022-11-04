@@ -5,7 +5,7 @@ image:
 tasks:
   - init: sdk use java 16.0.1.hs-adpt &&
           cd mavenprojectest &&
-          mvn install &&
+          mvn clean install &&
           cd backend &&
           mvn spring-boot:start
     command: cd ..
