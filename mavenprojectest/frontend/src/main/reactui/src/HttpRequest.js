@@ -9,6 +9,6 @@ const instance = axios.create({
 
     const requestUrl = origin.replace("3000", "8080")
     console.log(origin)
-    return instance.get(requestUrl)
-                .then(response => console.log("working"))
+    return instance.get(requestUrl + "/things")
+                .then(response => console.log(response.data))
 }

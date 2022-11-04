@@ -13,6 +13,11 @@ public class Controller {
     
     @GetMapping("/")
     String startup() {
-        return "Hello this";
+        return "This text confirms that the backend server is running";
+    }
+
+    @GetMapping("/things")
+    String things() {
+        return "This text was returned from a get request";
     }
 }
