@@ -10,8 +10,11 @@ tasks:
       mvn clean install
     command: mvn spring-boot:run
   - name: Start frontend
+    init: |
+      cd mavenprojectest/frontend/src/main
+      npm install
     command: |
       gp ports await 8080
-      echo port open
+      npm start
     openMode: split-right
 
