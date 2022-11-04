@@ -4,7 +4,9 @@ image:
 
 tasks:
   - init: sdk use java 16.0.1.hs-adpt
-    command: cd mavenprojectest
+          cd mavenprojectest/backend
+          mvn spring-boot:start
+    command: cd ..
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
