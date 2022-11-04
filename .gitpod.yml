@@ -11,7 +11,7 @@ tasks:
     command: mvn spring-boot:run
   - name: Start frontend
     init: |
-      cd mavenprojectest/frontend/src/main
+      cd mavenprojectest/frontend/src/main/reactui
       npm install
     command: |
       gp ports await 8080
