@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>no.ntnu.gr2250</groupId>
+    <artifactId>frontend</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+
+    <parent>
+      <groupId>no.ntnu.gr2250</groupId>
+      <artifactId>parent</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
+    </parent>
+  
+    <properties>
+      <ui.directory>${project.basedir}/src/main/reactui</ui.directory>
+      <node.version>18.0.0</node.version>
+      <npm.version>8.19.2</npm.version>
+      <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
+    </properties>
+  
+  
+    <dependencies>
+  
+
+
+
+  
+
+  
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>bootstrap</artifactId>
+        <version>3.3.7-1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>jquery</artifactId>
+        <version>3.6.0</version>
+      </dependency>
+  
+  
+    </dependencies>
+  
+    <build>
+      <plugins>
+        <!-- Compiling code -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+        </plugin>
+  
+
+  
+  
+
+  
+
+        <!-- Initialize node and npm-->
+        <plugin>
+          <groupId>com.github.eirslett</groupId>
+          <artifactId>frontend-maven-plugin</artifactId>
+          <!-- Use the latest released version:
+          https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
+          <version>1.12.1</version>
+  
+          <configuration>
+            <nodeVersion>v${node.version}</nodeVersion>
+            <npmVersion>${npm.version}</npmVersion>
+            <workingDirectory>${ui.directory}</workingDirectory>
+            <installDirectory>${project.build.directory}</installDirectory>
+            <enviromentVariables>
+              <CI>false</CI>
+            </enviromentVariables>
+          </configuration>
+  
+          <executions>
+  
+            <execution>
+              <id>install node and npm</id>
+              <goals>
+                <goal>install-node-and-npm</goal>
+              </goals>
+              <phase>generate-resources</phase>
+            </execution>
+  
+            <execution>
+              <id>npm install</id>
+              <goals>
+                <goal>npm</goal>
+              </goals>
+              <phase>generate-resources</phase>
+              <configuration>
+                <arguments>install</arguments>
+              </configuration>
+            </execution>
+  
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </project>
+  
+  
