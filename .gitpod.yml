@@ -3,13 +3,18 @@ image:
 
 
 tasks:
-  - init: sdk use java 16.0.1.hs-adpt &&
-          cd mavenprojectest/backend &&
-          mvn clean install &&
-          mvn spring-boot:start
-    command: cd ..
+  - before: sdk use java 16.0.1.hs-adpt
+  - name: Dev server
+    init: |
+      cd mavenprojectest/backend
+      mvn clean install
+    command: mvn spring-boot:run
+  - name: Start frontend
+    init: |
+      cd mavenprojectest/frontend/src/main/reactui
+      npm install
+    command: |
+      gp ports await 8080
+      npm start
+    openMode: split-right
 
-# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
-ports:
-  - port: 6080
-    onOpen: notify
