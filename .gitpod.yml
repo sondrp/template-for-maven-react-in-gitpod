@@ -3,7 +3,7 @@ image:
 
 
 tasks:
-  - before: sdk use java 16.0.1.hs-adpt
+  - before: sdk use java 17.0.4.fx-zulu
   - name: Dev server
     init: |
       cd mavenprojectest/backend
